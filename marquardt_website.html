@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marquardt Behavioral Coaching & Supports - In-classroom teacher coaching to reduce behavior disruptions and build teacher confidence.">
+    <title>Marquardt Behavioral Coaching & Supports</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Color Palette */
+        :root {
+            --navy: #1E3A8A;
+            --green: #4CAF50;
+            --teal: #14B8A6;
+            --orange: #FFA500;
+            --light-gray: #f8f9fa;
+            --dark-gray: #444;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        .cta-button {
+            background: var(--teal);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--navy);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* What We Do Section */
+        .what-we-do {
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .what-we-do h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .what-we-do p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Grid */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            text-align: center;
+        }
+
+        .pricing h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--teal);
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 8px 20px rgba(20, 184, 166, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .pricing-card h3 {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--teal);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+            color: var(--dark-gray);
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-card li:before {
+            content: "✓ ";
+            color: var(--green);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: var(--light-gray);
+        }
+
+        .how-it-works h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+        }
+
+        .timeline-number {
+            background: var(--teal);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h3 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+        }
+
+        .about h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .credentials h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        /* Newsletter Signup */
+        .newsletter {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .newsletter input {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .newsletter button {
+            padding: 0.75rem 2rem;
+            background: var(--orange);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter button:hover {
+            background: #ff8c00;
+        }
+
+        /* FAQs Section */
+        .faqs {
+            background: var(--light-gray);
+        }
+
+        .faqs h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--teal);
+        }
+
+        .faq-item h4 {
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: var(--teal);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-submit:hover {
+            background: var(--green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--teal);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 2rem;
+            color: #ccc;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter input {
+                width: 100%;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Marquardt</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#schools">For Schools</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="#contact" class="cta-button">Book a Call</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Classroom Behavior Management</h1>
+            <p>In-classroom coaching that builds teacher confidence and reduces disruptions—so you can focus on teaching.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Schedule Discovery Call</button>
+                <button class="btn-secondary" onclick="document.getElementById('schools').scrollIntoView({behavior: 'smooth'})">Learn About Our Services</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="what-we-do">
+        <div class="container">
+            <h2>Behavior Solutions Built for Real Classrooms</h2>
+            <p>For over 15 years, I've worked with teachers to understand behavior, identify root causes, and implement strategies that actually work. My approach is practical, evidence-based, and tailored to your students and classroom context.</p>
+            <p style="font-weight: 600; color: var(--teal); font-size: 1.4rem;">Even when you're at the end of your rope, there's always a better way.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="schools" class="container">
+        <h2 style="color: var(--navy); font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">What We Offer Schools</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>Initial Observation & Assessment</h3>
+                <p>3–4 hours of classroom observation paired with a teacher interview to understand your specific challenges, current strategies, and classroom context.</p>
+            </div>
+            <div class="service-card">
+                <h3>Custom Behavior Support Plan</h3>
+                <p>A written plan delivered within 1–2 business days that includes functional behavior assessment, antecedent strategies, and data tracking systems.</p>
+            </div>
+            <div class="service-card">
+                <h3>Ongoing Classroom Coaching</h3>
+                <p>1–2 observations per week in Month 1–2, with direct modeling, feedback, and support. We fade as you gain confidence and competence.</p>
+            </div>
+            <div class="service-card">
+                <h3>Monthly Progress Reports</h3>
+                <p>Track behavior improvements with data, monitor teacher fidelity, and show measurable progress toward your goals each month.</p>
+            </div>
+            <div class="service-card">
+                <h3>Multiple Teacher Support</h3>
+                <p>Scale across your school. Work with 1, 2, or 3 teachers under a single school contract at discounted rates.</p>
+            </div>
+            <div class="service-card">
+                <h3>Optional Functional Analysis</h3>
+                <p>If data collection doesn't reveal the function of behavior, we conduct a full functional analysis to identify root causes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="container pricing">
+        <h2>Investment & Pricing</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Single Teacher</h3>
+                <div class="price">$2,500–3,000<span style="font-size: 0.7em; display: block;">per month</span></div>
+                <ul>
+                    <li>Initial observation (3–4 hrs)</li>
+                    <li>Behavior support plan</li>
+                    <li>1–2 coaching sessions/week</li>
+                    <li>Monthly progress reports</li>
+                    <li>3-month minimum</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Learn More</button>
+            </div>
+            <div class="pricing-card">
+                <h3>2 Teachers</h3>
+                <div class="price">$5,500<span style="font-size: 0.7em; display: block;">per month</span></div>
+                <ul>
+                    <li>Initial observations (both teachers)</li>
+                    <li>Behavior support plans</li>
+                    <li>Staggered coaching sessions</li>
+                    <li>Monthly progress reports</li>
+                    <li>School contract model</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Learn More</button>
+            </div>
+            <div class="pricing-card">
+                <h3>3+ Teachers</h3>
+                <div class="price">$7,500–8,000<span style="font-size: 0.7em; display: block;">per month</span></div>
+                <ul>
+                    <li>Initial observations (all teachers)</li>
+                    <li>Behavior support plans</li>
+                    <li>Flexible coaching schedule</li>
+                    <li>Monthly progress reports</li>
+                    <li>School-wide support</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>Our Coaching Process</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Discovery & Observation (Week 1)</h3>
+                        <p>I spend 3–4 hours observing your classroom and interviewing you about the challenges you're facing, what you've already tried, and your goals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Behavior Plan Development (Week 2)</h3>
+                        <p>Within 1–2 business days, I deliver a custom behavior support plan that identifies the function of the behavior and provides specific antecedent and consequence strategies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>Implementation & Coaching (Months 1–3+)</h3>
+                        <p>We observe, coach, model strategies, and collect data. I provide specific feedback and support until you're implementing with confidence and fidelity.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Fading & Independence (Month 3+)</h3>
+                        <p>As you gain competence, we systematically reduce coaching frequency. You succeed independently while data shows sustained behavior improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container about" id="about">
+        <h2>About Marquardt Behavioral Coaching & Supports</h2>
+        <div class="about-content">
+            <p>I'm a Board Certified Behavior Analyst (BCBA) with 15+ years of experience working with teachers, students, and families in school settings. I've seen what works—and what doesn't—when managing classroom behavior.</p>
+            <p style="margin-top: 1.5rem;">My mission is simple: help teachers manage behavior with evidence-based strategies so students can learn and teachers can teach. Every classroom is different, which is why I don't use cookie-cutter approaches. Your plan is tailored to your students, your context, and your goals.</p>
+            <div class="credentials">
+                <h3>Credentials & Experience</h3>
+                <p>✓ Board Certified Behavior Analyst (BCBA)</p>
+                <p>✓ 15+ years in school-based ABA</p>
+                <p>✓ Specialization in classroom behavior support</p>
+                <p>✓ Professional liability insurance</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="container">
+        <div class="newsletter">
+            <h3>Get Updates on Behavior Coaching Tips</h3>
+            <p>Subscribe for insights, strategies, and updates on new services.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="faqs" id="faqs">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How long does coaching typically last?</h4>
+                    <p>Most engagements run 3–6 months. We start with intensive coaching (1–2x per week) and fade as you demonstrate fidelity and see behavior improvements. The timeline depends on your progress.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if I don't see results quickly?</h4>
+                    <p>We track data every session. If a strategy isn't working after 2–3 weeks of implementation, we adjust the plan. Behavior change takes time, but we move quickly to find what works for your students.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can you work with multiple teachers at once?</h4>
+                    <p>Absolutely. Many schools work with 2–3 teachers under a single contract. I stagger observations and coaching to be efficient while giving each teacher the support they need.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you work with students with IEPs?</h4>
+                    <p>Yes. In fact, many students on IEPs benefit from behavior support plans. We coordinate with your special education team and align with existing IEP goals.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if behavior gets worse before it gets better?</h4>
+                    <p>Sometimes behavior temporarily increases when we remove reinforcement for problem behavior. This is called an extinction burst and is normal. We monitor closely and adjust as needed.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How is progress measured?</h4>
+                    <p>We use objective data collection (ABC logs, frequency counts, duration) to track behavior changes. Monthly progress reports show baseline data, current trends, and whether we're hitting our goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container contact" id="contact">
+        <h2>Schedule Your Discovery Call</h2>
+        <p style="margin-bottom: 2rem; color: var(--dark-gray); font-size: 1.1rem;">Let's talk about your classroom challenges and how Marquardt Behavioral Coaching can help.</p>
+        <div class="contact-content">
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="school">School Name</label>
+                    <input type="text" id="school" name="school" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Your Role</label>
+                    <input type="text" id="role" name="role" placeholder="e.g., Teacher, Principal, Special Ed Director" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell me about your biggest behavior challenge:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Schedule Discovery Call</button>
+            </form>
+            <p style="margin-top: 1.5rem; color: #666; font-size: 0.95rem;">We'll respond within 24 hours to schedule your complimentary 15-minute discovery call.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Marquardt Behavioral Coaching & Supports</h4>
+                <p style="color: #ccc; margin-bottom: 1rem;">In-classroom teacher coaching for behavior support in Tampa Bay schools.</p>
+                <p style="color: #aaa;">Email: contact@marquardtbehavioralcoaching.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#schools">For Schools</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#schools">Classroom Observation</a></li>
+                    <li><a href="#schools">Behavior Support Plans</a></li>
+                    <li><a href="#schools">Teacher Coaching</a></li>
+                    <li><a href="#schools">Progress Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Marquardt Behavioral Coaching & Supports. All rights reserved. | <a href="#" style="color: #aaa;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            // For now, just show a confirmation
+            alert('Thank you! We will contact you within 24 hours to schedule your discovery call.');
+            // Reset form
+            document.querySelector('.contact-form').reset();
+            
+            // In production, you'd send this to your email service or backend
+            // For Squarespace, they handle form submissions automatically
+        }
+    </script>
+</body>
+</html>
